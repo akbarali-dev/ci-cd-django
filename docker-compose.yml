@@ -1,0 +1,130 @@
+version: '3.3'
+
+services:
+  app:
+    restart: always
+    container_name: django
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - pgdb
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+  pgdb:
+    restart: always
+    image: postgres:latest
+    container_name: pgdb
+    environment:
+      - POSTGRES_DB=musicspider
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root123
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+
+
+
+
+
+
+#version: "3.9"
+#
+#services:
+#  web:
+#    build: .
+#    command: python /code/manage.py runserver 0.0.0.0:8000
+#    volumes:
+#      - .:/code
+#    ports:
+#      - 8000:8000
+#    depends_on:
+#      - db
+#    environment:
+#      - POSTGRES_DB=musicspider
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=root123
+#  db:
+#    ports:
+#      - "5433:5432"
+#    image: postgres
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data/
+#    environment:
+#      - POSTGRES_DB=musicspider
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=root123
+#      - POSTGRES_HOST_AUTH_METHOD=trust
+#
+#volumes:
+#  postgres_data:
+
+
+
+
+
+
+
+
+
+#services:
+#  db:
+#    image: postgres
+#    volumes:
+#      - ./data/db:/var/lib/postgresql/data
+#    environment:
+#      - POSTGRES_DB=musicspider
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=root123
+#  web:
+#    build: .
+#    command: python manage.py runserver 0.0.0.0:8000
+#    volumes:
+#      - .:/code
+#    ports:
+#      - "8000:8000"
+#    environment:
+#      - POSTGRES_NAME=musicspider
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=root123
+#    depends_on:
+#      - db
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#version: "3"
+#
+#services:
+#  app:
+#    build: .
+#    depends_on:
+#      - db
+#    environment:
+#      - POSTGRES_HOST=db
+#      - POSTGRES_DB=postgres
+#    ports:
+#      - "8000:8000"
+#  db:
+#    image: postgres:9.6
+#    environment:
+#      - POSTGRES_DB=musicspider
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=roo123
+#    ports:
+#      - "5000:5432"
+#    volumes:
+#      - /data/db:/var/lib/postgresql/data
