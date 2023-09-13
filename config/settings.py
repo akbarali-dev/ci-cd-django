@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'pytest',
     # Third part
     'rest_framework',
     'drf_yasg',
