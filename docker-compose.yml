@@ -23,8 +23,6 @@ services:
       - POSTGRES_PASSWORD=root123
     volumes:
       - ./data:/var/lib/postgresql/data
-    env_file:
-      - ./.env
 
 
 
