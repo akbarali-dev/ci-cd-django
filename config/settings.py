@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Locally
     'music',
     'django.contrib.postgres'
+
 ]
 
 MIDDLEWARE = [
