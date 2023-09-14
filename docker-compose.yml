@@ -2,6 +2,8 @@ version: '3.3'
 
 services:
   app:
+    environment:
+      - DOCKER=True
     restart: always
     container_name: django
     build: .
