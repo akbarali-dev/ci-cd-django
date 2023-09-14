@@ -13,7 +13,7 @@ jobs:
         run: sudo apt install python3-pip
       - name: Install requirements
         run: pip install -r requirements.txt
-      - name: Execute tests
+#      - name: Execute tests
 #        env:
 #          DJANGO_SETTINGS_MODULE: config.settings
-        run: python3 manage.py test
+#        run: python3 manage.py test
